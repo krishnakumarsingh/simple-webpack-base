@@ -1,4 +1,5 @@
 import header from "./bar";
+import "./index.less";
 
 header("Krishna");
 
