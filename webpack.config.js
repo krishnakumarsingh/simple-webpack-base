@@ -1,14 +1,4 @@
-/**
- * [hash]
- * [chunkhash]
- * [name]
- * [id]
- * [query]
- * [contenthash]
- */
-
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -20,11 +10,19 @@ module.exports = {
     filename: "js/[name].js",
     publicPath: "/assets/",
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
   devServer: {
     port: 1234,
     contentBase: path.join(__dirname, "./"),
     writeToDisk: false,
     hot: true,
   },
-  // plugins: [new webpack.HotModuleReplacementPlugin()],
+  optimization: {},
 };
