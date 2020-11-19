@@ -13,8 +13,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.less$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              additionalData: `@env: ${process.env.NODE_ENV};`,
+            },
+          },
+        ],
       },
     ],
   },
